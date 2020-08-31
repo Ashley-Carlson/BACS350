@@ -1,4 +1,4 @@
-"""BACS350 URL Configuration
+"""app1 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+
+def home_page_view(request):
+    return HttpResponse("<h1>World's Simplest Website</h1>")
+
+
+urlpatterns = [path("admin/", admin.site.urls), path("", home_page_view)]
