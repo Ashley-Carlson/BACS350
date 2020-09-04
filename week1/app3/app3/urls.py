@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.urls import path
 from pages.views import AboutView, HomeView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path("", HomeView.as_view()),
     path("about", AboutView.as_view()),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
