@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block title %}Harley{% endblock %}
+{% block active %}harley{% endblock %}
+{% block body %}
+{% load static %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Harley</li>
+  </ol>
+</nav>
+  <h1>Harley</h1>
+  <img src="{% static 'img/harleyIvy.png' %}" alt="Harley" width=50%>
+{% endblock %}

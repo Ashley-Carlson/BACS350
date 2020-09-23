@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block title %}Elektra{% endblock %}
+{% block active %}elektra{% endblock %}
+{% block body %}
+{% load static %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Elektra</li>
+  </ol>
+</nav>
+  <h1>Elektra</h1>
+  <img src="{% static 'img/Elektra.jpg' %}" alt="electra">
+{% endblock %}
