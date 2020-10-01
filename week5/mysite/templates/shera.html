@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block title %}She-Ra{% endblock %}
+{% block active %}shera{% endblock %}
+{% block body %}
+{% load static %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">She-Ra</li>
+  </ol>
+</nav>
+  <h1>She-Ra</h1>
+  <img src="{% static 'img/shera.jpg' %}" alt="She-Ra">
+{% endblock %}

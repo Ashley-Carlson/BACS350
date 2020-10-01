@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block title %}Okoye{% endblock %}
+{% block active %}okoye{% endblock %}
+{% block body %}
+{% load static %}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Okoye</li>
+  </ol>
+</nav>
+  <h1>Okoye</h1>
+  <img src="{% static 'img/Okoye.png' %}" alt="okoye" width=30%>
+{% endblock %}
