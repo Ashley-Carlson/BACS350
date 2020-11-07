@@ -13,16 +13,16 @@
   <ul class="nav nav-pills">
   <li class="nav-item">
     <li class="nav-item">
-      <a id="home" class="nav-link" href="{% url 'index' %}">Home</a>
+      <a id="home" class="nav-link" href="{% url 'hero_list' %}">All</a>
     </li>
     <li>
-    <a  id="harley" class="nav-link" href="{% url 'harley' %}">Add</a>
+    <a  id="harley" class="nav-link" href="{% url 'hero_detail?3' %}">Add</a>
   </li>
   <li class="nav-item">
-    <a id="shera" class="nav-link" href="{% url 'shera' %}">About</a>
+    <a id="shera" class="nav-link" href="{% url 'hero_detail?3' %}">About</a>
   </li>
   <li class="nav-item">
-    <a id="elektra" class="nav-link" href="{% url 'electra' %}">Contact</a>
+    <a id="elektra" class="nav-link" href="{% url 'hero_detail?3' %}">Contact</a>
   </li>
   </ul>
 </div>

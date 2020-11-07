@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from polls.views import AddView, DetailView, EditView, ListView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+#    path('', HeroView.as_view()),
+#    path('<str:identity>', HeroView.as_view()),
+    path('', ListView.as_view(), name='hero_list'),
+    path('<int:pk>', DetailView.as_view(), name='hero_detail'),
+    path('add', AddView.as_view(), name='hero_add'),
+    path('<int:pk>/', EditView.as_view(), name='hero_edit'),
+
 ]

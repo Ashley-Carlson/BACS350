@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block active %}home{% endblock %}
+{% block body %}
+{% load static %}
+<!--breadcrumb -->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
+  </ol>
+</nav>
+<h1>Real Life Heros</h1>
+
+   <main class="bg-dark text-light">
+       <div class="container text-center">
+
+            {% for hero in object_list %}
+
+                <div class="card m-5">
+                    <div class="card-header bg-primary">
+                        <h2>
+                            <a class="text-light" href="{{ hero.img }}">{{ hero.name }}</a>
+                        </h2>
+                    </div>
+                    <div class="card-body bg-light text-dark">
+
+                        <p>
+                            Hero: {{ hero.name }}
+                        </p>
+                        <p>
+                            Description: {{ hero.description }}
+                        </p>
+
+                        {% if missing %}
+                            <p class="border"><i class="fa fa-user fa-6x"></i></p>
+                        {% endif %}
+
+                        <img width="300" src="/static/{{ hero.image }}" alt="{{ hero.namew }}">
+
+                    </div>
+                </div>
+
+            {% endfor %}
+       </div>
+
+     </main>
+
+{% endblock %}

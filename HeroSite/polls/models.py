@@ -9,3 +9,8 @@ class Superhero(models.Model):
     birthyear = models.DateField()
     deathyear = models.DateField(blank=True, null=True)
     img = models.FileField(null=True)
+def __str__(self):
+    return self.identity
+
+def get_absolute_url(self):
+    return reverse('hero_detail', args=[str(self.id)])
