@@ -23,6 +23,13 @@ class ListView(ListView):
     template_name = "index.html"
     model = Superhero
 
+class ContactView(ListView):
+    template_name = "index.html"
+    model = Superhero
+
+class AboutView(ListView):
+    template_name = "about.html"
+    model = Superhero
 
 class AddView(CreateView):
     template_name = "add.html"
