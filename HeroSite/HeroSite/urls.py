@@ -14,17 +14,30 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from polls.views import AddView, DetailView, EditView, ListView, AboutView, ContactView, DetailView
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path, include
+from polls.views import (
+    AddView,
+    DetailView,
+    EditView,
+    ListView,
+    AboutView,
+    ContactView,
+    DetailView,
+    RegisterView,
+)
 
 urlpatterns = [
-#    path('', HeroView.as_view()),
-#    path('<str:identity>', HeroView.as_view()),
-    path('', ListView.as_view(), name='hero_list'),
-    path('about', AboutView.as_view(), name='about'),
-    path('<int:pk>', DetailView.as_view(), name='detail'),
-    path('add', AddView.as_view(), name='add'),
-    path('contact', ContactView.as_view(), name='contact'),
-    path('<int:pk>/', EditView.as_view(), name='hero_edit'),
-
-]
+    #    path('', HeroView.as_view()),
+    #    path('<str:identity>', HeroView.as_view()),
+    path("", ListView.as_view(), name="hero_list"),
+    path("about", AboutView.as_view(), name="about"),
+    path("<int:pk>", DetailView.as_view(), name="detail"),
+    path("add", AddView.as_view(), name="add"),
+    path("contact", ContactView.as_view(), name="contact"),
+    path("<int:pk>/", EditView.as_view(), name="hero_edit"),
+    path("admin/", admin.site.urls),
+    path("register", RegisterView.as_view(), name="register"),
+    path("", include("django.contrib.auth.urls")),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

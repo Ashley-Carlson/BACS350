@@ -9,8 +9,8 @@
   <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-  <div>
-  <ul class="nav nav-pills">
+  <div style="padding-bottom: 2%;">
+  <ul class="nav nav-pills" width=50% style="float: left;">
   <li class="nav-item">
     <li class="nav-item">
       <a id="home" class="nav-link" href="{% url 'hero_list' %}">All</a>
@@ -25,13 +25,19 @@
     <a id="elektra" class="nav-link" href="{% url 'contact' %}">Contact</a>
   </li>
   </ul>
+  {% if user.is_authenticated %}
+  Welcome, {{ user.get_username }}. <a href="/logout" style="float: right; font-size: 1rem; margin-right: 1%; margin-top: .5%;">Logout</a>
+  {% else %}
+  <a href="/login" style="float: right; font-size: 1rem; margin-right: 1%; margin-top: .5%;">Login</a>
+  {% endif %}
 </div>
-<!--breadcrumb -->
+<!--breadcrumb
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item active" aria-current="page"> <a href="{% url 'hero_list' %}">Home</a></li>
   </ol>
 </nav>
+!-->
   {% block body %}{% endblock %}
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
