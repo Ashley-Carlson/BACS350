@@ -6,7 +6,8 @@ from django.views.generic.edit import CreateView, UpdateView
 from os.path import exists
 from .models import Superhero
 from .forms import SuperheroAddForm, RegisterForm
-from django.http import HttpResponse
+from django.conf import settings
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class DetailView(DetailView):
@@ -15,8 +16,8 @@ class DetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         kwargs = super().get_context_data(**kwargs)
-        image = kwargs["object"].image
-        if not exists("/" + image):
+        image = kwargs["object"].img
+        if not exists(settings.MEDIA_ROOT + str(image)):
             kwargs["missing"] = True
         return kwargs
 
@@ -57,10 +58,12 @@ class AddView(CreateView):
     success_url = "/"
 
 
-class EditView(UpdateView):
+class EditView(LoginRequiredMixin, UpdateView):
     template_name = "edit.html"
     model = Superhero
     fields = "__all__"
+    login_url = "/login"
+    redirect_field_name = "redirect_to"
 
 
 class RegisterView(CreateView):

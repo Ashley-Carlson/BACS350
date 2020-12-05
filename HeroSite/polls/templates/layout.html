@@ -12,8 +12,14 @@
   <div style="padding-bottom: 2%;">
   <ul class="nav nav-pills" width=50% style="float: left;">
   <li class="nav-item">
-    <li class="nav-item">
-      <a id="home" class="nav-link" href="{% url 'hero_list' %}">All</a>
+    <li class="nav-item dropdown">
+      <a id="home" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+      <div class="dropdown-menu" aria-labelledby="home">
+        <a class="dropdown-item" href="/">CardView</a>
+        <a class="dropdown-item" href="/table">TableView</a>
+        <a class="dropdown-item" href="/tabs">TabView</a>
+        <a class="dropdown-item" href="/accordion">AccordionView</a>
+      </div>
     </li>
     <li>
     <a  id="add" class="nav-link" href="{% url 'add' %}">Add</a>

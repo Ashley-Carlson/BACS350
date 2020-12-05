@@ -30,6 +30,7 @@
     {% endif %}
       <p style="margin-top: 2em;">{{ hero.description }}</p>
       <img src="/uploaded/{{ hero.img }}" alt="{{ hero.name }}" style="max-width: 30%;">
+      <a href="/details/{{ hero.id }}" style="margin-top: 1em; display: block;">View Me</a>
     </div>
   {% endfor %}
 </div>

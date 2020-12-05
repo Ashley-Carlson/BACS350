@@ -18,7 +18,7 @@
       {% for hero in object_list %}
       <tr>
           <th scope="row">{{ hero.id }}</th>
-          <td>{{ hero.name }}</td>
+          <td><a href="/details/{{ hero.id }}">{{ hero.name }}</a></td>
           <td>{{ hero.description }}</td>
           <td>{{ hero.birthyear }}</td>
           <td>{{ hero.deathyear }}</td>
