@@ -25,6 +25,9 @@ from polls.views import (
     AboutView,
     ContactView,
     DetailView,
+    AccordionView,
+    TabsView,
+    TableView,
     RegisterView,
 )
 
@@ -39,5 +42,8 @@ urlpatterns = [
     path("<int:pk>/", EditView.as_view(), name="hero_edit"),
     path("admin/", admin.site.urls),
     path("register", RegisterView.as_view(), name="register"),
+    path("accordion", AccordionView.as_view(), name="accordion"),
+    path("tabs", TabsView.as_view(), name="tabs"),
+    path("table", TableView.as_view(), name="table"),
     path("", include("django.contrib.auth.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

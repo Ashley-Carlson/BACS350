@@ -26,6 +26,21 @@ class ListView(ListView):
     model = Superhero
 
 
+class AccordionView(ListView):
+    template_name = "accordion.html"
+    model = Superhero
+
+
+class TabsView(ListView):
+    template_name = "tabs.html"
+    model = Superhero
+
+
+class TableView(ListView):
+    template_name = "table.html"
+    model = Superhero
+
+
 class ContactView(ListView):
     template_name = "contact.html"
     model = Superhero

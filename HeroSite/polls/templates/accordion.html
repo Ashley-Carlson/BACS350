@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block active %}home{% endblock %}
+{% block body %}
+{% load static %}
+
+<h1>Real Life Heros</h1>
+
+   <main class="bg-dark text-dark">
+       <div class="container text-center accordion" id="accordionHero">
+
+        {% for hero in object_list %}
+          <div class="card">
+            <div class="card-header" id="hero{{ hero.id }}">
+              <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#hero{{ hero.id }}Data" aria-expanded="false" aria-controls="hero{{ hero.id }}Data">
+                  {{ hero.name }}
+                </button>
+              </h2>
+            </div>
+            <div class="collapse" id="hero{{ hero.id }}Data" aria-labelledby="hero{{ hero.id }}" data-parent="#accordionHero">
+              <div class="card-body">
+                <p>{{ hero.description }}</p>
+                <img src="/uploaded/{{ hero.img }}" alt="{{ hero.name }}" style="max-width: 80%;">
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+       </div>
+
+     </main>
+
+{% endblock %}

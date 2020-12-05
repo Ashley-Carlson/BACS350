@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block active %}home{% endblock %}
+{% block body %}
+{% load static %}
+
+<h1>Real Life Heros</h1>
+
+<ul class="nav nav-tabs" id="heroTab" role="tablist">
+  {% for hero in object_list %}
+    <li class="nav-item">
+      {% if forloop.first %}
+      <a class="nav-link active" id="hero{{ hero.id }}-tab" data-toggle="tab" href="#hero{{ hero.id }}" role="tab" aria-controls="hero{{ hero.id }}"
+        aria-selected="true">
+      {% else %}
+      <a class="nav-link" id="hero{{ hero.id }}-tab" data-toggle="tab" href="#hero{{ hero.id }}" role="tab" aria-controls="hero{{ hero.id }}"
+        aria-selected="false">
+      {% endif %}
+        {{ hero.name }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+<div class="tab-content" id="heroTabContent" style="margin-left: 1em;">
+  {% for hero in object_list %}
+    {% if forloop.first %}
+    <div class="tab-pane fade show active" id="hero{{ hero.id }}" role="tabpanel" aria-labelledby="hero{{ hero.id }}-tab">
+    {% else %}
+    <div class="tab-pane fade" id="hero{{ hero.id }}" role="tabpanel" aria-labelledby="hero{{ hero.id }}-tab">
+    {% endif %}
+      <p style="margin-top: 2em;">{{ hero.description }}</p>
+      <img src="/uploaded/{{ hero.img }}" alt="{{ hero.name }}" style="max-width: 30%;">
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
